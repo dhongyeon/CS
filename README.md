@@ -21,4 +21,7 @@ else:
     print("input a posivite value u dumbell")
 
 ```
-2. Problem 2. Differentiating 
+2. Problem 2. Python code for numerical differentiation
+```Python
+
+``` 
