@@ -1,2 +1,2 @@
-# Repository for Yosnsei HEP-Cosmo Coding Study
+# Repository for Yonsei HEP-Cosmo Coding Study
 **Dhong Yeon Cheong**
