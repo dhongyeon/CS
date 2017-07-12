@@ -1,12 +1,13 @@
 #%%
 
 class Derivative:
-  def __init__(og, f, h=10**(-5)):
-      og.f = f
-      og.h = float(h)
+  def __init__(self, f, h=10**(-5)):
+      self.f = f
+      self.h = float(h)
 
-  def __call__(og, x):
-      return (og.f(x+og.h) - og.f(x))/og.h
+  def __call__(self, x):
+    f,h = self.f, self.h
+    return (f(x+h) - f(x))/h
 
 
 
