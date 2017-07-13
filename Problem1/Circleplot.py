@@ -1,4 +1,3 @@
-#%%
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -15,8 +14,11 @@ y1 = r*sin(theta1)
 
 b = -(x1/y1)*x+(r/y1)
 
+plt.title("Circle & Tangent")
+plt.xlabel('x')
+plt.ylabel('y')
 plt.plot(x,y,'b',x,b,'r')
 plt.plot(x,-y,'b',x,b,'r')
 plt.gca().set_aspect('equal')
 
-plt.show()
+plt.savefig("HAHA.png")
