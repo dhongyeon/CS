@@ -15,12 +15,12 @@ def Diceroll():
         return "6"
 
 def quincunx():
-    quincunx = 0
-    n = 1000000
+    count = 0
+    n = 10000000
     for i in range(n):
         if Diceroll() == "5":
-            quincunx +=1
-    prob = (quincunx)/(n)
+            count +=1
+    prob = (count)/(n)
     print("The prob for the quincunx is",prob)
 
 
