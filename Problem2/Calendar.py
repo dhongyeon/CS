@@ -1,7 +1,5 @@
 calendar = [31,28,31,30,31,30,31,31,30,31,30,31]
 
-
-
 def leap_determine(year):
     if year % 4 == 0:
         if year % 100 ==0:
@@ -20,7 +18,7 @@ date = list(map(int, user_input.split('.')))
 year = date[0]
 month = date[1]
 day = date[2]
-s = 0
+
 
 def day_of_year(j):
     if leap_determine(j)==True:
@@ -43,19 +41,19 @@ Total_day = dyear + dmonth + dday
 day_find = (Total_day) % 7
 
 def Day_finding(day_find):  
-    if day_find == 0:
+    if day_find == 1:
         return "Sun"
-    elif day_find == 1:
-        return "Mon"
     elif day_find == 2:
-        return "Tue"
+        return "Mon"
     elif day_find == 3:
-        return "Wed"
+        return "Tue"
     elif day_find == 4:
-        return "Thu"
+        return "Wed"
     elif day_find == 5:
-        return "Fri"
+        return "Thu"
     elif day_find == 6:
+        return "Fri"
+    elif day_find == 0:
         return "Sat"
 
 print("It is "+str(Total_day)+"days AD, and it is a "+Day_finding(day_find))
