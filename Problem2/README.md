@@ -41,8 +41,9 @@ The result for one trial gave a result of "The prob for the quincunx is 0.166609
 2. Sort a list.
 
 A physics test table was given as following.
+<br>
 | Name        | Score | 
-|-------------|-------| 
+|-------------|-------:| 
 | Schrodinger | 64    | 
 | Einstein    | 90    | 
 | Feynman     | 98    | 
