@@ -42,7 +42,7 @@ Total_day = dyear + dmonth + dday
 
 day_find = (Total_day) % 7
 
-def Day_finding():  
+def Day_finding(day_find):  
     if day_find == 0:
         return "Sun"
     elif day_find == 1:
@@ -58,8 +58,13 @@ def Day_finding():
     elif day_find == 6:
         return "Sat"
 
-print("It is "+str(Total_day)+"days AD, and it is a "+Day_finding())
+print("It is "+str(Total_day)+"days AD, and it is a "+Day_finding(day_find))
 
+Total_day_100 = Total_day + 100
+day_find_mod = (Total_day_100)%7
+
+
+print("It is a "+Day_finding(day_find_mod)+" after 100 days from the inputed date")
 
 
 
