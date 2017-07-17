@@ -121,6 +121,8 @@ rank = [i[2] for i in fopen]
 score = [i[1] for i in fopen]
 
 plt.title("Score of Exam")
-
 plt.plot(rank, score, label = 'score distribution')
+plt.legend(loc='upper left')
+plt.xlabel('rank')
+plt.ylabel('score')
 plt.savefig("Sorted Phytest.png")
