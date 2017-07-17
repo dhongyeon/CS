@@ -42,20 +42,22 @@ The result for one trial gave a result of "The prob for the quincunx is 0.166609
 
 A physics test table was given as following.
 <br>
-| Name        | Score | 
-|-------------|-------:| 
-| Schrodinger | 64    | 
-| Einstein    | 90    | 
-| Feynman     | 98    | 
-| Neumann     | 100   | 
-| Dirac       | 92    | 
-| Bohr        | 90    | 
-| Fermi       | 91    | 
-| Heisenberg  | 72    | 
-| Pauli       | 88    | 
-| Newton      | 93    | 
-| Leibniz     | 93    | 
-| Planck      | 52    | 
+
+>| Name        | Score | 
+>|-------------|-------:| 
+>| Schrodinger | 64    | 
+>| Einstein    | 90    | 
+>| Feynman     | 98    | 
+>| Neumann     | 100   | 
+>| Dirac       | 92    | 
+>| Bohr        | 90    | 
+>| Fermi       | 91    | 
+>| Heisenberg  | 72    | 
+>| Pauli       | 88    | 
+>| Newton      | 93    | 
+>| Leibniz     | 93    | 
+>| Planck      | 52    | 
+
 
 I copyed this list into a csv file, and opened the csv file in python using the following code. And as the first line is considered as a header and was a serious burden processing it with the actual data, I removed it by removing the first element of the list.
 
