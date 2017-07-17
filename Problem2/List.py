@@ -1,5 +1,6 @@
 import csv
 import operator as op
+import math
 
 def In() : 
     reader = csv.reader(open("Phytest.csv"), delimiter = ",")
@@ -32,6 +33,20 @@ def convert():
 
     return clist
 
+def mean():
+    x = convert()
+    mean = sum(x)/(len(x))
+    
+    return mean
+
+def std():
+    clist = convert()
+    m = mean()
+    ss = sum((x-m)**2 for x in clist)
+    std = math.sqrt(ss/len(clist))
+
+    return std
+
 def merge():
     l1 = slist()
     l2 = convert()
@@ -47,5 +62,55 @@ def sort():
 
     return sorlist
 
+def split():
+    split = list(map(op.itemgetter(1), sort()))
+    return split
 
-print(sort())
+def rank(a):
+    n = len(a)
+    ivec = sorted(range(n),key=a.__getitem__)
+    svec= [a[rank] for rank in ivec]
+    sumrank = 0
+    dupcount = 0
+    newarray = [0]*n
+    
+    for i in range(n):
+        sumrank += i
+        dupcount += 1
+        if i == n-1 or svec[i] != svec[i+1]:
+            for j in range(i-dupcount+1, i+1):
+                newarray[ivec[j]] = i+1
+
+            sumrank = 0
+            dupcount = 0
+
+    return newarray
+
+def reverse():
+    rarray = rank(split())
+    n2 = len(rarray)
+    
+
+    return [n2-x+1 for x in rarray]
+
+
+def Finalmerge():
+    sflist1 = list(map(op.itemgetter(0),sort()))
+    sflist2 = list(map(op.itemgetter(1),sort()))
+    rlist = reverse()
+
+    merge = list(list(l) for l in zip(sflist1, sflist2, rlist))
+
+
+    return merge
+
+def Nowdoit():
+    print("Mean is ",mean())
+    print("STD is ", std())
+
+    with open("Sorted Phytest.csv", "w", newline="") as f :
+        writer = csv.writer(f)
+        writer.writerows(Finalmerge())
+
+Nowdoit()
+
