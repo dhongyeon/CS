@@ -1,7 +1,7 @@
 import csv
 import operator as op
 import math
-
+import matplotlib.pyplot as plt
 def In() : 
     reader = csv.reader(open("Phytest.csv"), delimiter = ",")
     my_list = list(reader)
@@ -108,9 +108,19 @@ def Nowdoit():
     print("Mean is ",mean())
     print("STD is ", std())
 
-    with open("Sorted Phytest.csv", "w", newline="") as f :
+    with open('Sorted Phytest.csv', "w", newline="") as f :
         writer = csv.writer(f)
         writer.writerows(Finalmerge())
 
 Nowdoit()
 
+with open('Sorted Phytest.csv','r') as f:
+    fopen = list(csv.reader(f))
+
+rank = [i[2] for i in fopen]
+score = [i[1] for i in fopen]
+
+plt.title("Score of Exam")
+
+plt.plot(rank, score, label = 'score distribution')
+plt.savefig("Sorted Phytest.png")
