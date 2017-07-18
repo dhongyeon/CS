@@ -69,7 +69,7 @@ def split():
 def rank(a):
     n = len(a)
     ivec = sorted(range(n),key=a.__getitem__)
-    svec= [a[rank] for rank in ivec]
+    svec= [a[k] for k in ivec]
     sumrank = 0
     dupcount = 0
     newarray = [0]*n
