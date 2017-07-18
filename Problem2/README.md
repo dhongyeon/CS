@@ -427,7 +427,7 @@ dday = day
 
 Total_day = dyear + dmonth + dday
 ```
-Now, we need to determine the day of the imported date. As AD 0001.1.1 is a sunday, I used the following code to determine the day of the date.
+Now, we need to determine the day of the imported date. As AD 0001.1.1 is a Sunday, I used the following code to determine the day of the date.
 ```Python
 day_find = (Total_day) % 7
 
