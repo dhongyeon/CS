@@ -36,7 +36,7 @@ def quincunx():
     prob = (count)/(n)
     print("The prob for the quincunx is",prob)
 ```
-The result for one trial gave a result of "The prob for the quincunx is 0.1666097". This is close to the theoretical probability for an unbiased dice, where each side has a 0.6667 probability.
+The result for one trial gave a result of "The prob for the quincunx is 0.1666097". This is close to the theoretical probability for an unbiased dice, where each side has a 0.16667 probability.
 
 2. Sort a list.
 
