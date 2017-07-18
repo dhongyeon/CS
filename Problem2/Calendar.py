@@ -36,24 +36,24 @@ dyear = sum(day_of_year(j) for j in range(1, year))
 dmonth = sum(calendar[i] for i in range(month-1))
 dday = day
 
-Total_day = dyear + dmonth + dday
+Total_day = dyear + dmonth + dday-1
 
 day_find = (Total_day) % 7
 
 def Day_finding(day_find):  
-    if day_find == 1:
+    if day_find == 0:
         return "Sun"
-    elif day_find == 2:
+    elif day_find == 1:
         return "Mon"
-    elif day_find == 3:
+    elif day_find == 2:
         return "Tue"
-    elif day_find == 4:
+    elif day_find == 3:
         return "Wed"
-    elif day_find == 5:
+    elif day_find == 4:
         return "Thu"
-    elif day_find == 6:
+    elif day_find == 5:
         return "Fri"
-    elif day_find == 0:
+    elif day_find == 6:
         return "Sat"
 
 print("It is "+str(Total_day)+"days AD, and it is a "+Day_finding(day_find))

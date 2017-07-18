@@ -69,6 +69,7 @@ def split():
 def rank(a):
     n = len(a)
     ivec = sorted(range(n),key=a.__getitem__)
+
     svec= [a[k] for k in ivec]
     sumrank = 0
     dupcount = 0
@@ -86,6 +87,7 @@ def rank(a):
 
     return newarray
 
+print(rank(split()))
 def reverse():
     rarray = rank(split())
     n2 = len(rarray)
