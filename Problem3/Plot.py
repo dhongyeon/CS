@@ -1,5 +1,8 @@
 #Open data from csv to plot
 import matplotlib.pyplot as plt
+import csv
+
+
 with open("Orbit.csv", "r", newline = "") as f:
     fopen = list(csv.reader(f))
 
