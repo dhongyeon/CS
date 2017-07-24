@@ -64,7 +64,7 @@ def Calculation(x):
     P_vec.insert(1, position_vec)
     U.insert(1, Potential_Energy(position_vec, velocity))
 
-    for i in range(2, 730*10+1):
+    for i in range(2, 7300+1):
         a = acceleration(position_vec)
         vf = velocity
         velocity= [(vi + ai*tscale) for vi, ai in zip(velocity, a)]
@@ -84,7 +84,7 @@ def Calculation(x):
     return P_vec, T, U
 
 def Reverse(x):
-    f1, f2 = x[730*10], x[730*10-1]
+    f1, f2 = x[7300], x[7300-1]
     return f1, f2
 
 C, T1, U1 = Calculation(Initial_Condition())
@@ -93,9 +93,11 @@ D, T2, U2 = Calculation(Reverse(C))
 E1 = [i+j for i, j in zip(T1, U1)]
 E2 = [i+j for i, j in zip(T2, U2)]
 
+Error = [(i-j) for i, j in zip(D[7300], C[0])]
+print(Error)
 Etotal1 = zip(T1, U1, E1)
 Etotal2 = zip(T2, U2, E2)
-
+print(Initial_Condition())
 #Write data in csv
 with open("Orbit.csv", "w", newline="") as f:
     writer = csv.writer(f)
@@ -112,95 +114,3 @@ with open("Orbit_reverse.csv", "w", newline="") as f:
 with open("Energy_reverse.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(Etotal2)
-
-#Open data from csv to plot
-
-with open("Orbit.csv", "r", newline = "") as f:
-    fopen = list(csv.reader(f))
-
-    t = [i for i in range(730*10+1)]
-    X = [i[0] for i in fopen] 
-    Y = [i[1] for i in fopen]
-    Z = [i[2] for i in fopen]
-
-    plt.title("Orbit")
-    plt.plot(t, X, label = 'x')
-    plt.plot(t, Y, label = 'y')
-    plt.plot(t, Z, label = 'z')
-    plt.legend(loc='upper left')
-    plt.xlabel('time in tscale = 43200 sec')
-    plt.ylabel('X Y Z')
-    plt.savefig("Orbit.png")
-
-f.close()
-
-with open("Energy.csv", "r", newline = "") as g:
-    fopen2 = list(csv.reader(g))
-    
-    t = [i for i in range(730*10)]
-    KE = [i[0] for i in fopen2]
-    PE = [i[1] for i in fopen2]
-    Et = [i[2] for i in fopen2]
-
-    plt.title("Energy")
-    plt.plot(t, KE, label = 'KE')
-    plt.plot(t, PE, label = 'PE')
-    plt.plot(t, Et, label = 'Total')
-    plt.legend(loc='upper left')
-    plt.xlabel('time in tscale = 43200 sec')
-    plt.ylabel('Energy(J)')
-    plt.savefig("Energy.png")
-
-with open("Orbit_reverse.csv", "r", newline = "") as f:
-    fopen = list(csv.reader(f))
-
-    t = [i for i in range(730*10+1)]
-    X = [i[0] for i in fopen] 
-    Y = [i[1] for i in fopen]
-    Z = [i[2] for i in fopen]
-
-    plt.title("Orbit Reverse")
-    plt.plot(t, X, label = 'x')
-    plt.plot(t, Y, label = 'y')
-    plt.plot(t, Z, label = 'z')
-    plt.legend(loc='upper left')
-    plt.xlabel('time in tscale = 43200 sec')
-    plt.ylabel('X Y Z')
-    plt.savefig("Orbit Reverse.png")
-    
-
-with open("Energy_reverse.csv", "r", newline = "") as g:
-    fopen2 = list(csv.reader(g))
-    
-    t = [i for i in range(730*10)]
-    KE = [i[0] for i in fopen2]
-    PE = [i[1] for i in fopen2]
-    Et = [i[2] for i in fopen2]
-
-    plt.title("Energy Reverse")
-    plt.plot(t, KE, label = 'KE')
-    plt.plot(t, PE, label = 'PE')
-    plt.plot(t, Et, label = 'Total')
-    plt.legend(loc='upper left')
-    plt.xlabel('time in tscale = 43200 sec')
-    plt.ylabel('Energy(J)')
-    plt.savefig("Energy Reverse.png")
-
-with open("Orbit.csv", "r", newline = "") as f:
-    fopen = list(csv.reader(f))
-
-    t = [i for i in range(730*10+1)]
-    X = [i[0] for i in fopen] 
-    Y = [i[1] for i in fopen]
-    Z = [i[2] for i in fopen]
-
-    plt.title("Orbit")
-    plt.plot(X, Y, label = 'y')
-    plt.plot(X, Z, label = 'z')
-    plt.legend(loc='upper left')
-    plt.xlabel('X')
-    plt.ylabel('Y, Z')
-    plt.gca().set_aspect('equal')
-    plt.savefig("Orbit Circle.png")
-
-f.close()
