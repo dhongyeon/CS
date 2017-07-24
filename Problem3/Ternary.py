@@ -1,6 +1,7 @@
 class Ternary_Operation():
     def __init__(self, ternary):
-        self.ternary= ternary
+        self.ternary= ternary%3
+    
     
 
     def __add__ (self, other): # overrun the addition to use "+"
@@ -24,9 +25,9 @@ class Ternary_Operation():
     def __str__(self):
         return "%i [Ternary]"%(self.ternary)
 
-A = Ternary_Operation(0)
-B = Ternary_Operation(1)
-F = Ternary_Operation(2)
+A = Ternary_Operation(4)
+B = Ternary_Operation(5)
+F = Ternary_Operation(7)
 
 C = A+B
 D = A*B
