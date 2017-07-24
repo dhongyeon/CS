@@ -25,13 +25,13 @@ class Ternary_Operation():
     def __str__(self):
         return "%i [Ternary]"%(self.ternary)
 
-A = Ternary_Operation(4)
-B = Ternary_Operation(5)
-F = Ternary_Operation(7)
+A = Ternary_Operation(int(input("A? ")))
+B = Ternary_Operation(int(input("B? ")))
+
 
 C = A+B
 D = A*B
-E = F.square()
+E = B.square()
 
 print(A)
 print(C)
