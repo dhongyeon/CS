@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>README_</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/Dhong-Yeon/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.2.1/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+
+      
+      
+
+      <style> 
+      /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+abap+actionscript+ada+apacheconf+apl+applescript+asciidoc+aspnet+autoit+autohotkey+bash+basic+batch+c+brainfuck+bro+bison+csharp+cpp+coffeescript+ruby+css-extras+d+dart+django+diff+docker+eiffel+elixir+erlang+fsharp+fortran+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+http+icon+inform7+ini+j+jade+java+jolie+json+julia+keyman+kotlin+latex+less+livescript+lolcode+lua+makefile+markdown+matlab+mel+mizar+monkey+nasm+nginx+nim+nix+nsis+objectivec+ocaml+oz+parigp+parser+pascal+perl+php+php-extras+powershell+processing+prolog+properties+protobuf+puppet+pure+python+q+qore+r+jsx+reason+rest+rip+roboconf+crystal+rust+sas+sass+scss+scala+scheme+smalltalk+smarty+sql+stylus+swift+tcl+textile+twig+typescript+vbnet+verilog+vhdl+vim+wiki+xojo+yaml */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;padding:2em;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#0050a3;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:16px;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:normal}}@media screen and (min-width:914px){html body:not([data-presentation-mode]){width:980px;margin:10px auto}}@media screen and (max-width:400px){html body:not([data-presentation-mode]){font-size:14px;margin:0 auto;padding:15px}}html body .pagebreak,html body .newpage{page-break-before:always}html body pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}html body pre.line-numbers>code{position:relative}html body pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}html body pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}html body pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}html body .mathjax-exps .MathJax_Display{text-align:center !important}html body:not([for="preview"]) .code-chunk .btn-group{display:none}html body:not([for="preview"]) .code-chunk .status{display:none} 
+       
+      </style>
+    </head>
+    <body class="mume   ">
+    <h1 class="mume-header" id="yonsei-hep-cosmo-coding-study">Yonsei HEP-COSMO Coding Study</h1>
+
+<h2 class="mume-header" id="problem-3">Problem 3</h2>
+
+<h3 class="mume-header" id="div-styletext-align-right-dhong-yeon-cheongbrdepartment-of-physics-yonsei-university"><div style="text-align: right"> Dhong Yeon Cheong<br>Department of Physics, Yonsei University.</div></h3>
+
+<h3 class="mume-header" id="1-ternary-group">1. Ternary Group</h3>
+
+<ul>
+<li>
+<p>Defined a class to achieve OOP for a Ternary group</p>
+</li>
+<li>
+<p>Used the mod calculation to convert the input number into a ternary element.</p>
+</li>
+</ul>
+<pre class="language-Python"><span class="token keyword">class</span> <span class="token class-name">Ternary_Operation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ternary<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>ternary<span class="token operator">=</span> ternary<span class="token operator">%</span><span class="token number">3</span>
+</pre>
+<ul>
+<li>As the problem stated to use general sum, mult symbols, I overran the +, * symbol as following</li>
+</ul>
+<pre class="language-Python"><span class="token comment" spellcheck="true">#Operations</span>
+<span class="token keyword">def</span> __add__ <span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># overrun the addition to use "+"</span>
+        sum <span class="token operator">=</span> self<span class="token punctuation">.</span>ternary <span class="token operator">+</span> other<span class="token punctuation">.</span>ternary
+        tsum <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">3</span>
+  
+        <span class="token keyword">return</span> Ternary_Operation<span class="token punctuation">(</span>tsum<span class="token punctuation">)</span>
+  
+    <span class="token keyword">def</span> <span class="token function">__mul__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#overrun the multiplication to use "*"</span>
+        mult <span class="token operator">=</span> self<span class="token punctuation">.</span>ternary <span class="token operator">*</span> other<span class="token punctuation">.</span>ternary
+        tmult <span class="token operator">=</span> mult <span class="token operator">%</span> <span class="token number">3</span>
+  
+        <span class="token keyword">return</span> Ternary_Operation<span class="token punctuation">(</span>tmult<span class="token punctuation">)</span>
+  
+    <span class="token keyword">def</span> <span class="token function">__xor__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>ternary <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">"Not defined"</span>
+  
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> other <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">:</span> 
+                <span class="token keyword">return</span> <span class="token number">1</span>
+  
+            <span class="token keyword">elif</span> other <span class="token operator">&lt;</span><span class="token number">0</span> <span class="token punctuation">:</span> 
+                <span class="token keyword">return</span> <span class="token string">"Not defined"</span>
+  
+            <span class="token keyword">else</span> <span class="token punctuation">:</span> 
+                power <span class="token operator">=</span> int<span class="token punctuation">(</span>other<span class="token punctuation">)</span>
+  
+                <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> power<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>ternary <span class="token operator">=</span> self<span class="token punctuation">.</span>ternary<span class="token operator">*</span>self<span class="token punctuation">.</span>ternary
+                    i <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span>
+  
+                <span class="token keyword">return</span> Ternary_Operation<span class="token punctuation">(</span>self<span class="token punctuation">.</span>ternary <span class="token operator">%</span> <span class="token number">3</span><span class="token punctuation">)</span>
+</pre>
+<ul>
+<li>This allowed me to do normal operations that satisfy group requirements. Finally the results were output via</li>
+</ul>
+<pre class="language-python">    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"%i [Ternary]"</span><span class="token operator">%</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>ternary<span class="token punctuation">)</span>
+</pre>
+<h3 class="mume-header" id="2-orbit-calculation">2. Orbit Calculation</h3>
+
+<ul>
+<li>The mathematics underlying the numerical calculation of the orbit comes from the definition of acceleration, velocity, and position.</li>
+</ul>
+<blockquote>
+<p align="center"><img src="https://latex.codecogs.com/gif.latex?v(t+h) \approx v(t)+ a(t)\bullet h"></p> 
+<p align="center"><img src="https://latex.codecogs.com/gif.latex?v(t) \approx \frac{s(t+h)-s(t)}{h}"></p>
+</blockquote>
+<ul>
+<li>Defined a initial state via</li>
+</ul>
+<pre class="language-Python"><span class="token keyword">def</span> <span class="token function">Initial_Condition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    Inivec1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">9.851920196143998</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token operator">*</span>AU<span class="token punctuation">,</span> <span class="token number">1.316466809434336</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token operator">*</span>AU<span class="token punctuation">,</span> <span class="token number">4.877392224782687</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">**</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span>AU<span class="token punctuation">]</span>
+    Inivec2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">9.864337701483683</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token operator">*</span>AU<span class="token punctuation">,</span> <span class="token number">1.230799243164879</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token operator">*</span>AU<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4.374019384763304</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">**</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span>AU<span class="token punctuation">]</span>
+  
+    <span class="token keyword">return</span> Inivec1<span class="token punctuation">,</span> Inivec2
+</pre>
+<ul>
+<li>Defined several useful calculations that will be frequently used</li>
+</ul>
+<pre class="language-Python"><span class="token keyword">def</span> <span class="token function">acceleration</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> distance<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+  
+    norm_a <span class="token operator">=</span> <span class="token operator">-</span> Gc<span class="token operator">*</span>M<span class="token operator">/</span><span class="token punctuation">(</span>n<span class="token operator">**</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+    a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>norm_a<span class="token punctuation">)</span><span class="token operator">*</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+  
+    <span class="token keyword">return</span> a
+  
+<span class="token keyword">def</span> <span class="token function">Kinetic_Energy</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    vn <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> v<span class="token punctuation">]</span>
+    p <span class="token operator">=</span> mt<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>sum<span class="token punctuation">(</span>vn<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+    KE <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token operator">*</span>m<span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">**</span><span class="token number">2</span><span class="token punctuation">)</span>
+  
+    <span class="token keyword">return</span> KE
+</pre>
+<ul>
+<li>Used these to create a numerical calculation code</li>
+</ul>
+<pre class="language-Python"><span class="token keyword">def</span> <span class="token function">Calculation</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    i1<span class="token punctuation">,</span> i2 <span class="token operator">=</span> x
+    v_initial <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x2 <span class="token operator">-</span> x1<span class="token punctuation">)</span><span class="token operator">/</span>tscale<span class="token punctuation">)</span> <span class="token keyword">for</span> x1<span class="token punctuation">,</span> x2 <span class="token keyword">in</span> zip<span class="token punctuation">(</span>i1<span class="token punctuation">,</span>i2<span class="token punctuation">)</span><span class="token punctuation">]</span>
+  
+    initial_vect <span class="token operator">=</span> i1
+    velocity <span class="token operator">=</span> v_initial
+    T <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    U <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    P_vec <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  
+  
+    P_vec<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>initial_vect<span class="token punctuation">)</span>
+    U<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> Potential_Energy<span class="token punctuation">(</span>initial_vect<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+    position_vec <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>x <span class="token operator">+</span> v<span class="token operator">*</span>tscale<span class="token punctuation">)</span> <span class="token keyword">for</span> x<span class="token punctuation">,</span> v <span class="token keyword">in</span> zip<span class="token punctuation">(</span>initial_vect<span class="token punctuation">,</span> velocity<span class="token punctuation">)</span><span class="token punctuation">]</span>
+  
+    P_vec<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> position_vec<span class="token punctuation">)</span>
+    U<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> Potential_Energy<span class="token punctuation">(</span>position_vec<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+  
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7300</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        a <span class="token operator">=</span> acceleration<span class="token punctuation">(</span>position_vec<span class="token punctuation">)</span>
+        v_1step <span class="token operator">=</span> velocity
+        velocity<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>vi <span class="token operator">+</span> ai<span class="token operator">*</span>tscale<span class="token punctuation">)</span> <span class="token keyword">for</span> vi<span class="token punctuation">,</span> ai <span class="token keyword">in</span> zip<span class="token punctuation">(</span>velocity<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">]</span>
+        vsum <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">+</span>j<span class="token punctuation">)</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> j <span class="token keyword">in</span> zip<span class="token punctuation">(</span>velocity<span class="token punctuation">,</span> v_1step<span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            vd <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">0.5</span> <span class="token operator">-</span> j<span class="token punctuation">)</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> j <span class="token keyword">in</span> zip<span class="token punctuation">(</span>vsum<span class="token punctuation">,</span> v_1step<span class="token punctuation">)</span><span class="token punctuation">]</span>
+  
+            T<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> Kinetic_Energy<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>i <span class="token operator">-</span> j<span class="token punctuation">)</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> j <span class="token keyword">in</span> zip<span class="token punctuation">(</span>v_1step<span class="token punctuation">,</span> vd<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+  
+        <span class="token keyword">elif</span> i <span class="token operator">==</span> <span class="token number">7300</span><span class="token punctuation">:</span>
+            vd <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">-</span>j<span class="token punctuation">)</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> j <span class="token keyword">in</span> zip <span class="token punctuation">(</span>velocity<span class="token punctuation">,</span> v_1step<span class="token punctuation">)</span><span class="token punctuation">]</span>
+  
+            T<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">7300</span><span class="token punctuation">,</span> Kinetic_Energy<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">+</span>j<span class="token punctuation">)</span> <span class="token keyword">for</span> i<span class="token punctuation">,</span> j <span class="token keyword">in</span> zip<span class="token punctuation">(</span>velocity<span class="token punctuation">,</span> vd<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+  
+        position_vec <span class="token operator">=</span> <span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token punctuation">(</span>k<span class="token operator">*</span>tscale<span class="token punctuation">)</span> <span class="token keyword">for</span> j<span class="token punctuation">,</span> k <span class="token keyword">in</span> zip<span class="token punctuation">(</span>position_vec<span class="token punctuation">,</span> velocity<span class="token punctuation">)</span><span class="token punctuation">]</span>
+  
+        P_vec<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>i<span class="token punctuation">,</span> position_vec<span class="token punctuation">)</span>
+        T<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>i<span class="token number">-1</span><span class="token punctuation">,</span> Kinetic_Energy<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> vsum<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        U<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>i<span class="token punctuation">,</span> Potential_Energy<span class="token punctuation">(</span>position_vec<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+    <span class="token keyword">return</span> P_vec<span class="token punctuation">,</span> T<span class="token punctuation">,</span> U
+</pre>
+<ul>
+<li>The resulted graphs are<br>
+<br><br>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Orbit.png" width="700" height="500"><br>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Plots/Orbit%20Circle.png" width="700" height="500"><br>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Energy.png" width="700" height="500"><br>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Orbit%20Reverse.png" width="700" height="500"><br>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Energy%20Reverse.png" width="700" height="500"></li>
+</ul>
+
+    </body>
+    
+    <script>
+(function bindTaskListEvent() {
+  var taskListItemCheckboxes = document.body.getElementsByClassName('task-list-item-checkbox')
+  for (var i = 0; i < taskListItemCheckboxes.length; i++) {
+    var checkbox = taskListItemCheckboxes[i]
+    var li = checkbox.parentElement
+    if (li.tagName !== 'LI') li = li.parentElement
+    if (li.tagName === 'LI') {
+      li.classList.add('task-list-item')
+    }
+  }
+}())    
+</script>
+  </html>
