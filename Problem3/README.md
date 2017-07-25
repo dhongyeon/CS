@@ -39,7 +39,7 @@ def __add__ (self, other): # overrun the addition to use "+"
         return "%i [Ternary]"%(self.ternary)
 ```
 
-### Orbit Calculation
+### 2. Orbit Calculation
 * The mathematics underlying the numerical calculation of the orbit comes from the definition of acceleration, velocity, and position. 
 
 >$$v(t+h) \approx v(t)+ a(t)\bullet h$$ 
