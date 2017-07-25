@@ -44,9 +44,6 @@ def __add__ (self, other): # overrun the addition to use "+"
 
 >$$v(t+h) \approx v(t)+ a(t)\bullet h$$ 
 >$$ v(t) \approx \frac{s(t+h)-s(t)}{h}$$
->
-
-
 
 * Defined a initial state via
 ```Python
@@ -120,3 +117,7 @@ def Calculation(x):
 
     return P_vec, T, U
 ```
+
+* The resulted graphs are 
+<br>
+![GitHub Logo]()
