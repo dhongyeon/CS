@@ -63,7 +63,8 @@ def Calculation(x):
 
     P_vec.insert(1, position_vec)
     U.insert(1, Potential_Energy(position_vec, velocity))
-
+    
+    
     for i in range(2, 7300+1):
         a = acceleration(position_vec)
         vf = velocity
@@ -73,11 +74,13 @@ def Calculation(x):
             vd = [(i*0.5 - j) for i, j in zip(vs, vf)]
             
             T.insert(0, Kinetic_Energy([],[(i - j) for i, j in zip(vf, vd)]))
+            
 
         elif i == 7300:
             vd = [(i-j) for i, j in zip (velocity, vf)]
             
             T.insert(7300, Kinetic_Energy([],[(i+j) for i, j in zip(velocity, vd)]))
+           
        
         position_vec = [j+(k*tscale) for j, k in zip(position_vec, velocity)]
         
