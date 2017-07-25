@@ -120,7 +120,7 @@ def Calculation(x):
 
 * The resulted graphs are 
 <br>
-<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Orbit.png" width=500 height=500>
-<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Energy.png" width=500 height=500>
-<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Orbit%20Reverse.png" width=500 height=500>
-<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Energy%20Reverse.png" width=500 height=500>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Orbit.png" width=600 height=500>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Energy.png" width=600 height=500>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Orbit%20Reverse.png" width=600 height=500>
+<img src="https://github.com/dhongyeon/CS/blob/master/Problem3/Energy%20Reverse.png" width=600 height=500>
