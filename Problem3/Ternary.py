@@ -16,11 +16,25 @@ class Ternary_Operation():
 
         return Ternary_Operation(tmult)
 
-    def square(self):
-        square = self.ternary * self.ternary
-        tsquare = square % 3
+    def __xor__(self, other):
+        if self.ternary == 0:
+            return "Not defined"
 
-        return Ternary_Operation(tsquare)
+        else:
+            if other == 0 : 
+                return 1
+            
+            elif other <0 : 
+                return "Not defined"
+
+            else : 
+                power = int(other)
+
+                for i in range(1, power+1):
+                    self.ternary = self.ternary*self.ternary
+                    i = i+1
+
+                return Ternary_Operation(self.ternary % 3)
 
     def __str__(self):
         return "%i [Ternary]"%(self.ternary)
@@ -31,7 +45,7 @@ B = Ternary_Operation(int(input("B? ")))
 
 C = A+B
 D = A*B
-E = B.square()
+E = B^2
 
 print(A)
 print(C)
