@@ -54,7 +54,7 @@ def __add__ (self, other): # overrun the addition to use "+"
 ```
 
 ### 2. Orbit Calculation
-* The mathematics underlying the numerical calculation of the orbit comes from the definition of acceleration, velocity, and position. 
+* The mathematics underlying the numerical calculation of the orbit comes from the definition of acceleration, velocity, and position, which is basically the Taylor expansion
 
 >$$v(t+h) \approx v(t)+ a(t)\bullet h$$ 
 >$$ v(t) \approx \frac{s(t+h)-s(t)}{h}$$
@@ -87,7 +87,9 @@ def Kinetic_Energy(x, v):
 
     return KE
 ```
-* Used these to create a numerical calculation code
+* Used these to create a numerical calculation code.
+
+* The main part is the for statement that repeats the integration code, and assigns it to pre-defined lists that act as vectors.
 ```Python 
 def Calculation(x):
     i1, i2 = x
@@ -113,8 +115,19 @@ def Calculation(x):
         a = acceleration(position_vec)
         v_1step = velocity
         velocity= [(vi + ai*tscale) for vi, ai in zip(velocity, a)]
-        vsum = [(i+j) for i, j in zip(velocity, v_1step)]
-        if i == 2:
+        
+        position_vec = [j+(k*tscale) for j, k in zip(position_vec, velocity)]
+        
+        P_vec.insert(i, position_vec)
+        T.insert(i-1, Kinetic_Energy([(i*0.5) for i in vsum]))
+        U.insert(i, Potential_Energy(position_vec))
+
+    return P_vec, T, U
+```
+
+* The code also took the boundary cases for the Kinetic energy and assigned them via the Trapezoid rule.
+```Python
+ if i == 2:
             vd = [(i*0.5 - j) for i, j in zip(vsum, v_1step)]
             
             T.insert(0, Kinetic_Energy([(i - j) for i, j in zip(v_1step, vd)]))
@@ -124,15 +137,6 @@ def Calculation(x):
             vd = [(i-j) for i, j in zip (velocity, v_1step)]
             
             T.insert(7300, Kinetic_Energy([(i+j) for i, j in zip(velocity, vd)]))
-           
-       
-        position_vec = [j+(k*tscale) for j, k in zip(position_vec, velocity)]
-        
-        P_vec.insert(i, position_vec)
-        T.insert(i-1, Kinetic_Energy([(i*0.5) for i in vsum]))
-        U.insert(i, Potential_Energy(position_vec))
-
-    return P_vec, T, U
 ```
 
 * The resulted graphs are 
