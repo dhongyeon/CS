@@ -101,33 +101,36 @@ def Calculation(x):
     
     
     P_vec.insert(0,initial_vect)
-    U.insert(0, Potential_Energy(initial_vect, velocity))
+    U.insert(0, Potential_Energy(initial_vect))
     
     position_vec = [(x + v*tscale) for x, v in zip(initial_vect, velocity)]
 
     P_vec.insert(1, position_vec)
-    U.insert(1, Potential_Energy(position_vec, velocity))
-
+    U.insert(1, Potential_Energy(position_vec))
+    
+    
     for i in range(2, 7300+1):
         a = acceleration(position_vec)
-        vf = velocity
+        v_1step = velocity
         velocity= [(vi + ai*tscale) for vi, ai in zip(velocity, a)]
-        vs = [(i+j) for i, j in zip(velocity, vf)]
+        vsum = [(i+j) for i, j in zip(velocity, v_1step)]
         if i == 2:
-            vd = [(i*0.5 - j) for i, j in zip(vs, vf)]
+            vd = [(i*0.5 - j) for i, j in zip(vsum, v_1step)]
             
-            T.insert(0, Kinetic_Energy([],[(i - j) for i, j in zip(vf, vd)]))
+            T.insert(0, Kinetic_Energy([(i - j) for i, j in zip(v_1step, vd)]))
+            
 
         elif i == 7300:
-            vd = [(i-j) for i, j in zip (velocity, vf)]
+            vd = [(i-j) for i, j in zip (velocity, v_1step)]
             
-            T.insert(7300, Kinetic_Energy([],[(i+j) for i, j in zip(velocity, vd)]))
+            T.insert(7300, Kinetic_Energy([(i+j) for i, j in zip(velocity, vd)]))
+           
        
         position_vec = [j+(k*tscale) for j, k in zip(position_vec, velocity)]
         
         P_vec.insert(i, position_vec)
-        T.insert(i-1, Kinetic_Energy(position_vec, [(i*0.5) for i in vs]))
-        U.insert(i, Potential_Energy(position_vec, [(i*0.5) for i in vs]))
+        T.insert(i-1, Kinetic_Energy([(i*0.5) for i in vsum]))
+        U.insert(i, Potential_Energy(position_vec))
 
     return P_vec, T, U
 ```

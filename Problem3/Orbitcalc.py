@@ -67,17 +67,17 @@ def Calculation(x):
     
     for i in range(2, 7300+1):
         a = acceleration(position_vec)
-        vf = velocity
+        v_1step = velocity
         velocity= [(vi + ai*tscale) for vi, ai in zip(velocity, a)]
-        vsum = [(i+j) for i, j in zip(velocity, vf)]
+        vsum = [(i+j) for i, j in zip(velocity, v_1step)]
         if i == 2:
-            vd = [(i*0.5 - j) for i, j in zip(vsum, vf)]
+            vd = [(i*0.5 - j) for i, j in zip(vsum, v_1step)]
             
-            T.insert(0, Kinetic_Energy([(i - j) for i, j in zip(vf, vd)]))
+            T.insert(0, Kinetic_Energy([(i - j) for i, j in zip(v_1step, vd)]))
             
 
         elif i == 7300:
-            vd = [(i-j) for i, j in zip (velocity, vf)]
+            vd = [(i-j) for i, j in zip (velocity, v_1step)]
             
             T.insert(7300, Kinetic_Energy([(i+j) for i, j in zip(velocity, vd)]))
            
