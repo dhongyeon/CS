@@ -1,13 +1,14 @@
 #Open data from csv to plot
+import matplotlib as mpl
+import numpy as np
 import matplotlib.pyplot as plt
 import csv
 import seaborn
 
-
 with open("Orbit.csv", "r", newline = "") as f:
     fopen = list(csv.reader(f))
 
-    t = [i for i in range(730*10+1)]
+    t = [i for i in range(7300+1)]
     X = [i[0] for i in fopen] 
     Y = [i[1] for i in fopen]
     Z = [i[2] for i in fopen]
@@ -26,7 +27,7 @@ f.close()
 with open("Energy.csv", "r", newline = "") as g:
     fopen2 = list(csv.reader(g))
     
-    t = [i for i in range(730*10)]
+    t = [i for i in range(7300+1)]
     KE = [i[0] for i in fopen2]
     PE = [i[1] for i in fopen2]
     Et = [i[2] for i in fopen2]
@@ -43,7 +44,7 @@ with open("Energy.csv", "r", newline = "") as g:
 with open("Orbit_reverse.csv", "r", newline = "") as f:
     fopen = list(csv.reader(f))
 
-    t = [i for i in range(730*10+1)]
+    t = [i for i in range(7300+1)]
     X = [i[0] for i in fopen] 
     Y = [i[1] for i in fopen]
     Z = [i[2] for i in fopen]
@@ -61,7 +62,7 @@ with open("Orbit_reverse.csv", "r", newline = "") as f:
 with open("Energy_reverse.csv", "r", newline = "") as g:
     fopen2 = list(csv.reader(g))
     
-    t = [i for i in range(730*10+1)]
+    t = [i for i in range(7300+1)]
     KE = [i[0] for i in fopen2]
     PE = [i[1] for i in fopen2]
     Et = [i[2] for i in fopen2]
