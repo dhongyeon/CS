@@ -1,6 +1,7 @@
 #Open data from csv to plot
 import matplotlib.pyplot as plt
 import csv
+import seaborn
 
 
 with open("Orbit.csv", "r", newline = "") as f:
@@ -60,7 +61,7 @@ with open("Orbit_reverse.csv", "r", newline = "") as f:
 with open("Energy_reverse.csv", "r", newline = "") as g:
     fopen2 = list(csv.reader(g))
     
-    t = [i for i in range(730*10)]
+    t = [i for i in range(730*10+1)]
     KE = [i[0] for i in fopen2]
     PE = [i[1] for i in fopen2]
     Et = [i[2] for i in fopen2]

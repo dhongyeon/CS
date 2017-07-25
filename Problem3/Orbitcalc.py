@@ -80,8 +80,8 @@ def Calculation(x):
             T.insert(7300, Kinetic_Energy([],[(i+j) for i, j in zip(velocity, vd)]))
        
         position_vec = [j+(k*tscale) for j, k in zip(position_vec, velocity)]
-        P_vec.insert(i, position_vec)
         
+        P_vec.insert(i, position_vec)
         T.insert(i-1, Kinetic_Energy(position_vec, [(i*0.5) for i in vs]))
         U.insert(i, Potential_Energy(position_vec, [(i*0.5) for i in vs]))
 
@@ -97,11 +97,19 @@ D, T2, U2 = Calculation(Reverse(C))
 E1 = [i+j for i, j in zip(T1, U1)]
 E2 = [i+j for i, j in zip(T2, U2)]
 
-Error = [(i-j) for i, j in zip(D[7300], C[0])]
-print(Error)
+Coordinate_Error = [(i-j) for i, j in zip(D[7300], C[0])]
+KE_Error = T2[7300] - T1[0]
+PE_Error = U2[7300] - U1[0]
+E_Error = E2[7300] - E1[0]
+
+print("Coordinate error is "+str(Coordinate_Error))
+print("Kinetic energy error is "+str(KE_Error))
+print("Potential energy error is " + str(PE_Error))
+print("Total energy error is " + str(E_Error))
+
 Etotal1 = zip(T1, U1, E1)
 Etotal2 = zip(T2, U2, E2)
-print(Initial_Condition())
+
 #Write data in csv
 with open("Orbit.csv", "w", newline="") as f:
     writer = csv.writer(f)
