@@ -69,23 +69,22 @@ def Calculation(x):
         a = acceleration(position_vec)
         v_1step = velocity
         velocity= [(vi + ai*tscale) for vi, ai in zip(velocity, a)]
-        vsum = [(i+j) for i, j in zip(velocity, v_1step)]
+        
         if i == 2:
-            vd = [(i*0.5 - j) for i, j in zip(vsum, v_1step)]
             
-            T.insert(0, Kinetic_Energy([(i - j) for i, j in zip(v_1step, vd)]))
+            T.insert(0, Kinetic_Energy([(i) for i in v_1step]))
             
 
         elif i == 7300:
-            vd = [(i-j) for i, j in zip (velocity, v_1step)]
+           
             
-            T.insert(7300, Kinetic_Energy([(i+j) for i, j in zip(velocity, vd)]))
+            T.insert(7300, Kinetic_Energy([(i) for i in velocity]))
            
        
         position_vec = [j+(k*tscale) for j, k in zip(position_vec, velocity)]
         
         P_vec.insert(i, position_vec)
-        T.insert(i-1, Kinetic_Energy([(i*0.5) for i in vsum]))
+        T.insert(i-1, Kinetic_Energy([(i) for i in velocity]))
         U.insert(i, Potential_Energy(position_vec))
 
     return P_vec, T, U

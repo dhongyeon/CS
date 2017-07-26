@@ -127,16 +127,18 @@ def Calculation(x):
 
 * The code also took the boundary cases for the Kinetic energy and assigned them via the Trapezoid rule.
 ```Python
- if i == 2:
-            vd = [(i*0.5 - j) for i, j in zip(vsum, v_1step)]
+    if i == 2:
             
-            T.insert(0, Kinetic_Energy([(i - j) for i, j in zip(v_1step, vd)]))
+            T.insert(0, Kinetic_Energy([(i) for i in v_1step]))
             
 
-        elif i == 7300:
-            vd = [(i-j) for i, j in zip (velocity, v_1step)]
+    elif i == 7300:
+           
             
-            T.insert(7300, Kinetic_Energy([(i+j) for i, j in zip(velocity, vd)]))
+        T.insert(7300, Kinetic_Energy([(i) for i in velocity]))
+           
+       
+    
 ```
 
 * The resulted graphs are 
