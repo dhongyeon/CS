@@ -125,7 +125,7 @@ def Calculation(x):
     return P_vec, T, U
 ```
 
-* The code also took the boundary cases for the Kinetic energy and assigned them via the Trapezoid rule.
+* The code also took the boundary cases for the Kinetic energy and assigned them.
 ```Python
     if i == 2:
             
