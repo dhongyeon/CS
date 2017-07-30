@@ -2,6 +2,7 @@ import time
 import random as rd
 import math as mt
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 
@@ -18,14 +19,14 @@ def distance3D(x, y, z):
 def Pi2D():
     pi = np.pi
     error = 0.1
-    inCircle, Total = 0,0
-    while (error >= 0.001):
-    
+   
+    while (error >= 0.0001):
+        inCircle, Total = 0,0
         start1 = time.time()
         while True:
             x,y = np.random.random(), np.random.random()
         
-            if ((distance2D(x,y))**2 <= 1):
+            if ((distance2D(x,y)) <= 1):
                 inCircle += 1
         
             Total += 1
@@ -36,7 +37,8 @@ def Pi2D():
                        estimate,pi,Total,error))
                 break
     
-        end1 = time.time()    
+        end1 = time.time()
+        plt.show()    
         print("Elapsed time", end1 - start1,"s\n")
     
         error *= 0.1
@@ -44,15 +46,14 @@ def Pi2D():
 def Pi3D():
     pi = np.pi
     error = 0.1
-    inCircle, Total = 0,0
     
-    while (error >= 0.1):
-        x,y,z = np.random.random(), np.random.random(), np.random.random()
-        
+
+    while (error >= 0.0001):
+        inCircle, Total = 0,0
         start1 = time.time()
         while True:
-
-            if((distance3D(x,y,z)**2 <= 1)):
+            x,y,z = np.random.random(), np.random.random(), np.random.random()
+            if((distance3D(x,y,z)<= 1)):
                 inCircle +=1
 
             Total += 1
@@ -70,6 +71,4 @@ def Pi3D():
     
         error *= 0.1
 
-
-Pi3D()
-
+Pi2D()
