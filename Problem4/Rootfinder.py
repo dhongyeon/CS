@@ -1,5 +1,6 @@
 import numpy as np
 import math
+import scipy.special as sp
 
 class Polynomial(object):
     def __init__(self, coefficients):
@@ -26,7 +27,8 @@ def Newtonian(f, x_0, accuracy):
         x_before = x_after
         x_after = x_before - (f(x_before)/(Derivative(f, x_before, 1.e-9)))
 
-    return print(x_after)
+
+    return (x_after)
 
 
 def rootsearch(f,a,b,dx): #Searches the interval (a,b) in increments dx for the bounds (x1,x2) of the smallest root of f(x).
@@ -53,7 +55,7 @@ def bisect(f,x1,x2,switch=0,tol=1.0e-9):
     if np.sign(f1) == np.sign(f2):
         print('Root is not bracketed')
         return None
-    n = int(math.ceil(math.log(abs(x2 - x1)/tol)/math.log(2.0)))
+    n = int(math.ceil(np.log(abs(x2 - x1)/tol)/np.log(2.0)))
     
     for i in range(n):
         x3 = 0.5*(x1 + x2); f3 = f(x3)
@@ -70,45 +72,29 @@ def bisect(f,x1,x2,switch=0,tol=1.0e-9):
             f2 = f3
     return (x1 + x2)/2.0
 
-def roots(f, a, b, eps=1e-6):
-    print ('The roots on the interval [%f, %f] are:' % (a,b))
+def roots(f, a, b, eps=0.001):
+    
     
     RMatrix = []
     i = 0
     while True:
         x1,x2 = rootsearch(f,a,b,eps)
         if x1 != None:
-            
             a = x2
-            root = bisect(f,x1,x2,0)
+            root = bisect(f,x1,x2,1)
             if root != None:
-                
-                r = root
-                
+                r = root 
                 RMatrix.insert(i, r)
-
-                i = i+1
-                print(i)
+                
         else:
             return RMatrix
             break
 
-        
-    
+print("Newtonian Method for x^2 - 4 = 0, x_0 = 1:", Newtonian(Polynomial([-4,0,1]), 1, 1e-10))
+print("Bisection Method for x^2 - 4 = 0 in [-1, 4] :", roots(Polynomial([-4,0,1]), -1, 4),"\n")
 
+print("Newtonian Method for x^5 -2x^3-7x^2+14 = 0, x_0 = 1:", Newtonian(Polynomial([14, 0, -7, -2, 0, 1]), 1, 1e-10))
+print("Bisection Method for x^5 -2x^3-7x^2+14 = 0 in [-3,1]:", roots(Polynomial([14, 0, -7, -2, 0, 1]), -3, 1))
 
-
-
-
-f = math.sin
-print(roots(f, -10, 10))
-
-    
-
-    
-
-
-
-
-
-
+print("Every root in [-100, 100] for sin(x) : ", roots(math.sin, -100, 100))
+print("Every root in [-150, 30] for Ai(x) : ", roots(sp.airy, -150, 30))
