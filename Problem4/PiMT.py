@@ -48,7 +48,7 @@ def Pi3D():
     error = 0.1
     
 
-    while (error >= 0.0001):
+    while (error >= 0.00000001):
         inCircle, Total = 0,0
         start1 = time.time()
         while True:
@@ -71,4 +71,4 @@ def Pi3D():
     
         error *= 0.1
 
-Pi2D()
+Pi3D()
