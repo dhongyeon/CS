@@ -90,11 +90,19 @@ def roots(f, a, b, eps=0.001):
             return RMatrix
             break
 
+def Ai(x):
+    (ai, ai_prime, bi, bi_prime) = sp.airy(x)
+    return ai
+
+def Function1(x):
+    return x - math.cos(x)
+
 print("Newtonian Method for x^2 - 4 = 0, x_0 = 1:", Newtonian(Polynomial([-4,0,1]), 1, 1e-10))
 print("Bisection Method for x^2 - 4 = 0 in [-1, 4] :", roots(Polynomial([-4,0,1]), -1, 4),"\n")
 
 print("Newtonian Method for x^5 -2x^3-7x^2+14 = 0, x_0 = 1:", Newtonian(Polynomial([14, 0, -7, -2, 0, 1]), 1, 1e-10))
 print("Bisection Method for x^5 -2x^3-7x^2+14 = 0 in [-3,1]:", roots(Polynomial([14, 0, -7, -2, 0, 1]), -3, 1))
 
-print("Every root in [-100, 100] for sin(x) : ", roots(math.sin, -100, 100))
-print("Every root in [-150, 30] for Ai(x) : ", roots(sp.airy, -150, 30))
+print("Every root in [-100, 100] for x-cos(x)=0 : ", roots(Function1, -100, 100))
+
+print("Every root in [-150, 30] for Ai(x) : ", roots(Ai, -150, 30))
