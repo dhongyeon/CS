@@ -18,8 +18,6 @@ def Average(x):
 
 
 def Midpointfilter(x):
-    i = 0
-    j = 0
     Ima = []
     for i in range(len(x)):
         if (x[i]>=Average(x)):
