@@ -45,7 +45,7 @@ def rootsearch(f,a,b,dx): #Searches the interval (a,b) in increments dx for the 
     else:
         return x1,x2
 
-def bisect(f,x1,x2,switch=0,tol=1.0e-9):
+def bisect(f,x1,x2,tol=1.0e-9):
     f1 = f(x1)
     if f1 == 0.0:
         return x1
@@ -53,14 +53,14 @@ def bisect(f,x1,x2,switch=0,tol=1.0e-9):
     if f2 == 0.0:
         return x2
     if np.sign(f1) == np.sign(f2):
-        print('Root is not bracketed')
+        print('No root')
         return None
-    n = int(math.ceil(np.log(abs(x2 - x1)/tol)/np.log(2.0)))
     
+    n = int(math.ceil(np.log(abs(x2 - x1)/tol)/np.log(2.0)))
     for i in range(n):
         x3 = 0.5*(x1 + x2); f3 = f(x3)
         
-        if (switch == 1) and (abs(f3) >abs(f1)) and (abs(f3) > abs(f2)):
+        if(abs(f3) >abs(f1)) and (abs(f3) > abs(f2)):
             return None
         if f3 == 0.0:
             return x3
@@ -81,7 +81,7 @@ def roots(f, a, b, eps=0.001):
         x1,x2 = rootsearch(f,a,b,eps)
         if x1 != None:
             a = x2
-            root = bisect(f,x1,x2,1)
+            root = bisect(f,x1,x2)
             if root != None:
                 r = root 
                 RMatrix.insert(i, r)

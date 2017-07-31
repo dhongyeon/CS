@@ -62,9 +62,10 @@ def Newtonian(f, x_0, accuracy):
 This uses the fact that for a function $y = f(x)$ where its values $f(a)f(b) < 0$ the equation $f(x)=0$ has at least one root in that boundary. And by closing the boundary into an infinitesimal size, we can determine the value of the root. To improve the computing time, I considered the following steps.
     * Find The boundaries ($x_1$, $x_2$) for a root.
     * Pass it to a Bisection Method.
-
+    
     To achieve this, I made a root finding code using increments of dx. This function searches for a root of $f(x)$ in the boundary $(a,b)$ in increments of dx. 
-    ```Python
+
+```Python
     def rootsearch(f,a,b,dx): #Searches the interval (a,b) in increments dx for the bounds (x1,x2) of the smallest root of f(x).
         x1 = a; f1 = f(a)
         x2 = a + dx; f2 = f(x2)
@@ -78,9 +79,96 @@ This uses the fact that for a function $y = f(x)$ where its values $f(a)f(b) < 0
             f2 = f(x2)
         else:
             return x1,x2
-    ```
+```
+Now as we determined the minimal boundary for a root, we can now close this in by using a bisection method. This uses the same logic with the incremental search method. If there is a root between $(x_1, x_2)$, then $f(x_1)$ and $f(x_2)$ have opposite signs. Then we reduce the interval to halve by defining $x_3 = \frac{1}{2}(x_1 + x_2)$, and repeating the process via the preceding rule. 
+This is repeated until a small value $\varepsilon$, where $$ |x_2 - x_1| < \varepsilon $$ To achieve this value, note that $|x_2 - x_1|$ is reduced to $2^n$ after n bisections. Thus, by solving for $n$, we get, $$n = \frac{ln(|x_2 - x_1|/\varepsilon)}{ln(2)}$$ To acheive this, we used the ceiling function in numpy. 
+The code for Bisection is 
+```Python
+def bisect(f,x1,x2,tol=1.0e-9):
+    f1 = f(x1)
+    if f1 == 0.0:
+        return x1
+    f2 = f(x2)
+    if f2 == 0.0:
+        return x2
+    if np.sign(f1) == np.sign(f2):
+        print('No root')
+        return None
+    
+    n = int(math.ceil(np.log(abs(x2 - x1)/tol)/np.log(2.0)))
+    for i in range(n):
+        x3 = 0.5*(x1 + x2); f3 = f(x3)
+        
+        if(abs(f3) >abs(f1)) and (abs(f3) > abs(f2)):
+            return None
+        if f3 == 0.0:
+            return x3
+        if np.sign(f2) != np.sign(f3) :
+            x1 = x3
+            f1 = f3
+        else:
+            x2 =x3
+            f2 = f3
+    return (x1 + x2)/2.0
 
-    Now as we determined the minimal boundary for a root, we can now close this in by using a bisection method. This uses the same logic with the incremental search method. If there is a root between $(x_1, x_2)$, then $f(x_1)$ and $f(x_2)$ have opposite signs. Then we reduce the interval to halve by defining $x_3 = \frac{1}{2}(x_1 + x_2)$, and repeating the process via the preceding rule. 
-    This is repeated until a small value $\varepsilon$, where $$ |x_2 - x_1| < \varepsilon $$ To achieve this value, note that $|x_2 - x_1|$ is reduced to $2^n$ after n bisections.
+```
+* The ```if(abs(f3) >abs(f1)) and (abs(f3) > abs(f2))``` part determines whether to check if $f(x)$ decreases upon bisection. If it doesn't, it may be a singularity, thus not a root.  
 
+Now we need to find all the roots of an equation in a given interval. This is achieved by using both ```rootsearch``` and ```bisection```. 
+```Python
+def roots(f, a, b, eps=0.001):
 
+    RMatrix = []
+    i = 0
+    while True:
+        x1,x2 = rootsearch(f,a,b,eps)
+        if x1 != None:
+            a = x2
+            root = bisect(f,x1,x2,1)
+            if root != None:
+                r = root 
+                RMatrix.insert(i, r)
+                
+        else:
+            return RMatrix
+            break
+```
+
+3. Maximum Finder.
+* Input part
+```python 
+with open('/users/Dhong-Yeon/Documents/CS/Problem3/Problem3/Orbit.csv', "r", newline = "") as f:
+    fopen = list(csv.reader(f))
+
+    t = [i for i in range(7300+1)]
+    X = [float(i[0]) for i in fopen] 
+    Y = [float(i[1]) for i in fopen]
+    Z = [float(i[2]) for i in fopen]
+    
+Distance = [np.sqrt(i**2 + j**2 + k**2) for i, j, k in zip(X, Y, Z)]
+```
+* As the data points are a vast amount, I first created a filter to take only values higher than the average of all points, 
+```Python
+def Midpointfilter(x):
+    Ima = []
+    for i in range(len(x)):
+        if (x[i]>=Average(x)):
+            
+            element = x[i]
+            Ima.append(x[i])
+
+    return Ima
+```
+* Then, I used a typical local maximum search algorithm. 
+```Python
+def localmaxima(x):
+    localmaxima = []
+  
+    for i in range(len(x)):     
+        if x[i] > x[i-1] and x[i] > x[i+1]:
+            localmaxima.append(x[i])
+    return localmaxima
+```
+
+#### Reference
+* Kiusalaas, Jaan. *Numerical methods in engineering with Python 3*. Cambridge university press, 2013.
