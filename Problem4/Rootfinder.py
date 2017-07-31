@@ -95,7 +95,7 @@ def Ai(x):
     return ai
 
 def Function1(x):
-    return x - math.cos(x)
+    return x - np.cos(x)
 
 print("Newtonian Method for x^2 - 4 = 0, x_0 = 1:", Newtonian(Polynomial([-4,0,1]), 1, 1e-10))
 print("Bisection Method for x^2 - 4 = 0 in [-1, 4] :", roots(Polynomial([-4,0,1]), -1, 4),"\n")
