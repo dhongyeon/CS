@@ -60,6 +60,27 @@ def Newtonian(f, x_0, accuracy):
 ```
 2) Bisection Method.
 This uses the fact that for a function $y = f(x)$ where its values $f(a)f(b) < 0$ the equation $f(x)=0$ has at least one root in that boundary. And by closing the boundary into an infinitesimal size, we can determine the value of the root. To improve the computing time, I considered the following steps.
-    * 
+    * Find The boundaries ($x_1$, $x_2$) for a root.
+    * Pass it to a Bisection Method.
+
+    To achieve this, I made a root finding code using increments of dx. This function searches for a root of $f(x)$ in the boundary $(a,b)$ in increments of dx. 
+    ```Python
+    def rootsearch(f,a,b,dx): #Searches the interval (a,b) in increments dx for the bounds (x1,x2) of the smallest root of f(x).
+        x1 = a; f1 = f(a)
+        x2 = a + dx; f2 = f(x2)
+        while np.sign(f1) == np.sign(f2):
+            if x1 >= b:
+                return None,None
+            x1 = x2
+            f1 = f2
+        
+            x2 = x1 + dx
+            f2 = f(x2)
+        else:
+            return x1,x2
+    ```
+
+    Now as we determined the minimal boundary for a root, we can now close this in by using a bisection method. This uses the same logic with the incremental search method. If there is a root between $(x_1, x_2)$, then $f(x_1)$ and $f(x_2)$ have opposite signs. Then we reduce the interval to halve by defining $x_3 = \frac{1}{2}(x_1 + x_2)$, and repeating the process via the preceding rule. 
+    This is repeated until a small value $\varepsilon$, where $$ |x_2 - x_1| < \varepsilon $$ To achieve this value, note that $|x_2 - x_1|$ is reduced to $2^n$ after n bisections.
 
 
