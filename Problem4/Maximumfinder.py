@@ -25,8 +25,6 @@ def Midpointfilter(x):
             element = x[i]
             Ima.append(x[i])
 
-       
-    
     return Ima
 
 def localmaxima(x):
