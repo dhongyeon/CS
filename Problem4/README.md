@@ -35,6 +35,7 @@ The code corresponding to this algorithm is
             estimate = 6*inCircle/Total
 ```
 <br>
+
 #### 2. Root Finder
 1) Newtonian Method
 The Newtonian method of calculating zeros of an equation uses the fact that the $x$ intercept of the tangent line of $x_0$ are similar. Consider the Taylor expansion $$f(x_{i+1}) = f(x_i) + f'(x_i)(x_{i+1} - x_1) + ...$$
